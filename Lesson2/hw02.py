@@ -1,4 +1,4 @@
-
+import random
 __author__ = 'Филоненко Константин'
 
 # Задача-1: Запросите у пользователя его возраст.
@@ -29,24 +29,28 @@ else:
 print('Start program 2')
 even = 'четные'
 odd = 'нечетные'
-answer = input('Четные или нечетные?')
+
 chet = []
 nechet = []
 a = []
 for i in range(0, 21):
     a.append(i)
-if answer == even:
-    for i in a:
-        if i % 2 == 0:
-            chet.append(i)
-    print(chet)
-elif answer == odd:
-    for i in a:
-        if i % 2 == 1:
-            nechet.append(i)
-    print(nechet)
-else:
-    print('Некорректный ответ')
+while a:
+    answer = input('Четные или нечетные?')
+    if answer == even:
+        for i in a:
+            if i % 2 == 0:
+                chet.append(i)
+        print(chet)
+        break
+    elif answer == odd:
+        for i in a:
+            if i % 2 == 1:
+                nechet.append(i)
+        print(nechet)
+        break
+    else:
+        print('Некорректный ответ попробуйте еще')
 
 
 # Задача-3: Дано произвольное целое число, вывести самую большую цифру этого числа.
@@ -58,16 +62,16 @@ else:
 # * постарайтесь решить задачу с применением арифметики и цикла while;
 # * при желании и понимании решите задачу с применением цикла for.
 
-import random
+
 print('Start program 3')
 
 a = random.randint(0, 10000000000)
 print('Выбрано число ', a)
-max = 0
+Max = 0
 i = a
 
 while i:
-    if i % 10 > max:
-        max = i % 10
+    if i % 10 > Max:
+        Max = i % 10
     i //= 10
-print('Максимальной цифрой в числе -', a, 'является', max)
+print('Максимальной цифрой в числе -', a, 'является', Max)
