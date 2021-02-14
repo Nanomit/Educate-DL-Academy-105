@@ -5,6 +5,25 @@
 # x = 2.5
 # вычислите и выведите y
 
+print('Start program 1')
+
+equation = 'y = -12x + 11111140.2121'
+x = 2.5
+
+a1 = equation.find('x')
+a2 = equation.find('=') + 2
+a = float(equation[a2:a1])
+
+if (equation[a1 + 2]) == '-':
+    sign = -1
+else:
+    sign = 1
+
+b = float(equation[a1 + 4:]) * sign
+
+y = a * x + b
+print(y)
+
 
 # Задание-2: Дата задана в виде строки формата 'dd.mm.yyyy'.
 # Проверить, корректно ли введена дата.
@@ -83,5 +102,27 @@ else:
 #
 # Вход: 11
 # Выход: 5 3
+print('\nStart program 3')
 
-print('\nStart program 3 \nТут мой мозг потик \nМои полномочия всё -_-')
+room_num = int(input('Введите номер комнаты: '))
+tower = []
+a = 0
+b = 0
+f = 0
+d = 0
+
+while a < room_num:
+    b += 1
+    block = []
+    for _ in range(b):
+        f += 1
+        floor = []
+        for d in range(b):
+            a += 1
+            floor.append(a)
+            if a == room_num:
+                print('Номер комнаты:', room_num, '\nЭтаж:', f, 'Очередность комнаты:', d + 1)
+        block.append(floor)
+    tower.append(block)
+
+
