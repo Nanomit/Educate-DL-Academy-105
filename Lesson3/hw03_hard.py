@@ -71,8 +71,10 @@ else:
                 print('В году не может быть больше 12 месяцев')
             elif year < 1:
                 print('Такого года не существует')
-            elif day < 1:
+            elif day < 1 or day > 31:
                 print('Некорректно указан день')
+            elif month < 1 or month > 12:
+                print('Некорректно указан месяц')
             else:
                 print('Дата - {} была введена правильно'.format(date))
 
