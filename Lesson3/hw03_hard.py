@@ -1,3 +1,4 @@
+import addition
 # Задание-1: уравнение прямой вида y = kx + b задано в виде строки.
 # Определить координату y точки с заданной координатой x.
 
@@ -42,7 +43,7 @@ print(y)
 # date = '01.22.1001'
 # date = '1.12.1001'
 # date = '-2.10.3001'
-import addition
+
 
 print('\nStart program 2')
 
@@ -70,6 +71,8 @@ else:
                 print('В году не может быть больше 12 месяцев')
             elif year < 1:
                 print('Такого года не существует')
+            elif day < 1:
+                print('Некорректно указан день')
             else:
                 print('Дата - {} была введена правильно'.format(date))
 
@@ -114,7 +117,7 @@ d = 0
 while a < room_num:
     b += 1
     block = []
-    for _ in range(b):
+    for i in range(b):
         f += 1
         floor = []
         for d in range(b):
