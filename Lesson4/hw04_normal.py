@@ -27,15 +27,15 @@ print('\nStart program 2')
 
 def sort_to_max(origin_list):
     sort_list = list()
-    for number in origin_list:
+    for num in origin_list:
         i = 0
-        while i < len(sort_list) and number > sort_list[i]:
+        while i < len(sort_list) and num > sort_list[i]:
             i += 1
-        sort_list.insert(i, number)
+        sort_list.insert(i, num)
     return print(sort_list)
 
 
-sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
+sort_to_max([random.randrange(-20, 20, 1) for i in range(10)])
 
 
 # Задача-3:
@@ -49,12 +49,12 @@ def my_filter(original_list):
     print(original_list)
     lst = []
     for i in original_list:
-        if i > 0:
+        if i >= 0:
             lst.append(i)
     return lst
 
 
-print(my_filter([random.randrange(-20, 20, 1) for i in range(10)]))
+print(my_filter([random.randrange(-20, 20, 1) for n in range(10)]))
 
 
 # Задача-4:
