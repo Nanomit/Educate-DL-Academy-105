@@ -1,10 +1,18 @@
+import os
+from hw06_easy import make, remove, lst
+
 # Задача-1:
 # Примечание: Если уже делали easy задание, то просто перенесите решение сюда.
 # Следующая программа написана верно, однако содержит места потенциальных ошибок.
 # используя конструкцию try добавьте в код обработку соответствующих исключений.
 # Пример.
 # Исходная программа:
-def avg(a, b):
+
+if __name__ == '__main__':
+    print('Start program 1')
+
+
+def avg(x, y):
     """Вернуть среднее геометрическое чисел 'a' и 'b'.
 
     Параметры:
@@ -13,13 +21,21 @@ def avg(a, b):
     Результат:
         - float.
     """
-    return (a * b) ** 0.5
+    return (x * y) ** 0.5
 
 
-a = float(input("a = "))
-b = float(input("b = "))
-c = avg(a, b)
-print("Среднее геометрическое = {:.2f}".format(c))
+while True:
+    try:
+        a = float(input("a = "))
+        b = float(input("b = "))
+        break
+    except ValueError:
+        print("Вы ввели не число")
+        continue
+
+if __name__ == '__main__':
+    c = avg(a, b)
+    print("Среднее геометрическое = {:.2f}".format(c))
 
 # ПРИМЕЧАНИЕ: Для решения задачи 2-3 необходимо познакомиться с модулями os, sys!
 # СМ.: https://pythonworld.ru/moduli/modul-os.html, https://pythonworld.ru/moduli/modul-sys.html
@@ -40,3 +56,45 @@ print("Среднее геометрическое = {:.2f}".format(c))
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
 
+if __name__ == '__main__':
+    print('\nStart program 2\n')
+
+
+def cd(path):
+    path = os.path.normpath(path)
+    try:
+        os.chdir(path)
+        if os.getcwd() == path:
+            print(f'Успешно перешёл. Текущая директория {os.getcwd()}')
+    except FileNotFoundError:
+        print('Папка {} не найдена'.format(path))
+
+
+if __name__ == '__main__':
+    while True:
+        print('[1] - Перейти в папку\n'
+              '[2] - Просмотреть содержимое текущей папки\n'
+              '[3] - Удалить папку\n'
+              '[4] - Создать папку\n'
+              '[5] - Выход\n')
+
+        step = input('Укажите номер действия: ').lower()
+
+        if step == '1':
+            name = input('Введите название папки: ')
+            cd(name)
+
+        if step == '2':
+            path = os.getcwd()
+            lst(path)
+
+        if step == '3':
+            name = input('Введите название папки: ')
+            remove(name)
+
+        if step == '4':
+            name = input('Введите название папки: ')
+            make(name)
+
+        if step == '5':
+            break
